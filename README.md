@@ -1,7 +1,7 @@
 # Front-Analisis-financiero
 
 Frontend en [Next.js](https://nextjs.org) (React, TypeScript, Tailwind). La UI sigue una arquitectura de **diseño atómico** en `src/components` (átomos, moléculas, organismos, plantillas); las rutas están en `src/app`.
-
+(consejo de sebas)
 ## Desarrollo
 
 Instala dependencias y arranca el servidor local:
@@ -29,4 +29,4 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 ## Despliegue
 
-Puedes desplegar en [Vercel](https://vercel.com/new) u otra plataforma compatible con Node.js. Consulta la [guía de despliegue](https://nextjs.org/docs/app/building-your-application/deploying).
+Muchachos lo podemos hacer en Versel que es sencillo si gustan.
