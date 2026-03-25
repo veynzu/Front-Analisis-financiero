@@ -4,6 +4,7 @@ import type {
   JobStartResponse,
   JobStatusResponse,
   SortResult,
+  TopVolumeDay,
 } from "./types";
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
@@ -32,3 +33,6 @@ export const getJobStatus = () =>
 // TODO: confirmar el endpoint de resultados de ordenamiento con el equipo backend
 export const getSortingResults = () =>
   apiFetch<SortResult[]>("/api/sort");
+
+export const getTopVolumeDays = () =>
+  apiFetch<TopVolumeDay[]>("/api/sorting/top-volume-days");

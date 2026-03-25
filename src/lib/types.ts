@@ -47,3 +47,20 @@ export interface SortResult {
   size: number;
   timeInMilliseconds: number;
 }
+
+export interface TopVolumeActive {
+  id: number;
+  name: string;
+  symbol: string;
+}
+
+export interface TopVolumeDay {
+  id: number;
+  date: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  active: TopVolumeActive;
+}
