@@ -5,10 +5,12 @@ import { TabBar, type Tab } from "@/components/molecules/TabBar";
 import { JobControl } from "@/components/organisms/JobControl";
 import { ActivesPanel } from "@/components/organisms/ActivesPanel";
 import { SortingPanel } from "@/components/organisms/SortingPanel";
+import { TopVolumeDaysPanel } from "@/components/organisms/TopVolumeDaysPanel";
 
 const TABS: Tab[] = [
   { id: "activos", label: "Activos" },
   { id: "ordenamiento", label: "Análisis de ordenamiento" },
+  { id: "top-volume", label: "Top volumen" },
 ];
 
 export function Dashboard() {
@@ -24,6 +26,7 @@ export function Dashboard() {
         <div role="tabpanel">
           {activeTab === "activos" && <ActivesPanel />}
           {activeTab === "ordenamiento" && <SortingPanel />}
+          {activeTab === "top-volume" && <TopVolumeDaysPanel />}
         </div>
       </div>
     </div>
