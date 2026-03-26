@@ -31,4 +31,4 @@ export const getJobStatus = () =>
 
 // TODO: confirmar el endpoint de resultados de ordenamiento con el equipo backend
 export const getSortingResults = () =>
-  apiFetch<SortResult[]>("/api/sort");
+  apiFetch<SortResult[]>("/api/sorting/analysis");
