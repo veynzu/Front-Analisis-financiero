@@ -6,11 +6,13 @@ import { JobControl } from "@/components/organisms/JobControl";
 import { ActivesPanel } from "@/components/organisms/ActivesPanel";
 import { SortingPanel } from "@/components/organisms/SortingPanel";
 import { TopVolumeDaysPanel } from "@/components/organisms/TopVolumeDaysPanel";
+import { TimeSeriesPanel } from "@/components/organisms/TimeSeries";
 
 const TABS: Tab[] = [
   { id: "activos", label: "Activos" },
   { id: "ordenamiento", label: "Análisis de ordenamiento" },
   { id: "top-volume", label: "Top volumen" },
+  { id: "time-series", label: "Similitud en series de tiempo" },
 ];
 
 export function Dashboard() {
@@ -27,6 +29,7 @@ export function Dashboard() {
           {activeTab === "activos" && <ActivesPanel />}
           {activeTab === "ordenamiento" && <SortingPanel />}
           {activeTab === "top-volume" && <TopVolumeDaysPanel />}
+          {activeTab === "time-series" && <TimeSeriesPanel />}
         </div>
       </div>
     </div>

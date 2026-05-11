@@ -64,3 +64,56 @@ export interface TopVolumeDay {
   volume: number;
   active: TopVolumeActive;
 }
+
+export type TimeSeriesField = "close" | "open" | "high" | "low" | "volume";
+
+export interface PriceDataPoint {
+  date: string;
+  valueObtained: number;
+}
+
+export interface EuclideanDistancePoint {
+  date: string;
+  distance: number;
+}
+
+export interface EuclideanData {
+  executionTime: number;
+  distanceList: EuclideanDistancePoint[];
+}
+
+export interface WarpingPathPoint {
+  dateX: string;
+  dateY: string;
+  cost: number;
+}
+
+export interface DtwData {
+  totalCost: number;
+  executionTime: number;
+  warpingPath: WarpingPathPoint[];
+  costTable: (number | "Infinity")[][];
+}
+
+export interface PearsonData {
+  coefficient: number;
+  description: string;
+  executionTime: number;
+}
+
+export interface CosineData {
+  similarity: number;
+  description: string;
+  executionTimeMs: number;
+}
+
+export interface TimeSeriesSimilarityResponse {
+  status: string;
+  firstActivePriceData: PriceDataPoint[];
+  secondActivePriceData: PriceDataPoint[];
+  euclidean: EuclideanData;
+  dtw: DtwData;
+  pearson: PearsonData;
+  cosine: CosineData;
+  [key: string]: unknown;
+}

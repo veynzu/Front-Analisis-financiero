@@ -5,6 +5,8 @@ import type {
   JobStatusResponse,
   SortResult,
   TopVolumeDay,
+  TimeSeriesField,
+  TimeSeriesSimilarityResponse,
 } from "./types";
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
@@ -36,3 +38,12 @@ export const getSortingResults = () =>
 
 export const getTopVolumeDays = () =>
   apiFetch<TopVolumeDay[]>("/api/sorting/top-volume-days");
+
+export const getTimeSeriesSimilarity = (
+  firstActiveId: number,
+  secondActiveId: number,
+  field: TimeSeriesField,
+) =>
+  apiFetch<TimeSeriesSimilarityResponse>(
+    `/api/time-series-similarity/process?firstActiveId=${firstActiveId}&secondActiveId=${secondActiveId}&field=${field}`,
+  );
