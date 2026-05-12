@@ -1,7 +1,11 @@
 export { ActivesPanel } from "./ActivesPanel";
+export { CandlestickPanel } from "./CandlestickPanel";
+export { CorrelationPanel } from "./CorrelationPanel";
 export { Dashboard } from "./Dashboard";
 export { HeroSection } from "./HeroSection";
 export { JobControl } from "./JobControl";
+export { ReportPanel } from "./ReportPanel";
+export { RiskAnalysisPanel } from "./RiskAnalysisPanel";
 export { SiteHeader } from "./SiteHeader";
 export { SortingPanel } from "./SortingPanel";
 export { TopVolumeDaysPanel } from "./TopVolumeDaysPanel";

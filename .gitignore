@@ -41,3 +41,7 @@ next-env.d.ts
 .cursorrules
 AGENTS.md
 CLAUDE.md
+.claude/
+
+# backend (proyecto separado, se clona aparte)
+/Backend/

@@ -7,6 +7,12 @@ import type {
   TopVolumeDay,
   TimeSeriesField,
   TimeSeriesSimilarityResponse,
+  PatternResult,
+  VolatilityResult,
+  VolatilityRankingResponse,
+  CorrelationMatrixResponse,
+  CorrelationField,
+  CandlestickResponse,
 } from "./types";
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
@@ -46,4 +52,42 @@ export const getTimeSeriesSimilarity = (
 ) =>
   apiFetch<TimeSeriesSimilarityResponse>(
     `/api/time-series-similarity/process?firstActiveId=${firstActiveId}&secondActiveId=${secondActiveId}&field=${field}`,
+  );
+
+// ============================================================
+// R3 — Patrones y volatilidad
+// ============================================================
+
+export const getPatternsByActive = (activeId: number, windowSize = 10) =>
+  apiFetch<PatternResult[]>(
+    `/api/analysis/patterns/${activeId}?windowSize=${windowSize}`,
+  );
+
+export const getAllPatterns = (windowSize = 10) =>
+  apiFetch<Record<string, PatternResult[]>>(
+    `/api/analysis/patterns?windowSize=${windowSize}`,
+  );
+
+export const getVolatility = (activeId: number) =>
+  apiFetch<VolatilityResult>(`/api/analysis/volatility/${activeId}`);
+
+export const getRiskRanking = () =>
+  apiFetch<VolatilityRankingResponse>("/api/analysis/risk-ranking");
+
+// ============================================================
+// R4 — Matriz de correlación
+// ============================================================
+
+export const getCorrelationMatrix = (field: CorrelationField = "close") =>
+  apiFetch<CorrelationMatrixResponse>(
+    `/api/correlation-matrix?field=${field}`,
+  );
+
+// ============================================================
+// R4 — Velas + SMA
+// ============================================================
+
+export const getCandlestickData = (activeId: number, smaPeriod = 20) =>
+  apiFetch<CandlestickResponse>(
+    `/api/visualization/candlestick/${activeId}?smaPeriod=${smaPeriod}`,
   );

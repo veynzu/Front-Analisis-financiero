@@ -117,3 +117,71 @@ export interface TimeSeriesSimilarityResponse {
   cosine: CosineData;
   [key: string]: unknown;
 }
+
+// ============================================================
+// R3 — Análisis de patrones y volatilidad
+// ============================================================
+
+export interface PatternResult {
+  activeSymbol: string;
+  activeName: string;
+  patternName: string;
+  patternDescription: string;
+  windowSize: number;
+  totalWindows: number;
+  patternOccurrences: number;
+  frequencyPercentage: number;
+  occurrenceDates: string[];
+}
+
+export type RiskCategory = "CONSERVADOR" | "MODERADO" | "AGRESIVO";
+
+export interface VolatilityResult {
+  activeSymbol: string;
+  activeName: string;
+  meanDailyReturn: number;
+  standardDeviation: number;
+  historicalVolatility: number;
+  riskCategory: RiskCategory;
+  dataPointsUsed: number;
+}
+
+export interface VolatilityRankingResponse {
+  ranking: VolatilityResult[];
+  totalActives: number;
+  categoryDistribution: Record<RiskCategory, number>;
+}
+
+// ============================================================
+// R4 — Matriz de correlación
+// ============================================================
+
+export type CorrelationField = "open" | "high" | "low" | "close" | "volume";
+
+export interface CorrelationMatrixResponse {
+  labels: string[];
+  matrix: (number | null)[][];
+  executionTime: number;
+}
+
+// ============================================================
+// R4 — Gráfico de velas + SMA
+// ============================================================
+
+export interface CandlestickPoint {
+  date: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  sma: number | null;
+}
+
+export interface CandlestickResponse {
+  activeId: number;
+  activeSymbol: string;
+  activeName: string;
+  smaPeriod: number;
+  data: CandlestickPoint[];
+}

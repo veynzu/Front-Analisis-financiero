@@ -7,12 +7,20 @@ import { ActivesPanel } from "@/components/organisms/ActivesPanel";
 import { SortingPanel } from "@/components/organisms/SortingPanel";
 import { TopVolumeDaysPanel } from "@/components/organisms/TopVolumeDaysPanel";
 import { TimeSeriesPanel } from "@/components/organisms/TimeSeries";
+import { RiskAnalysisPanel } from "@/components/organisms/RiskAnalysisPanel";
+import { CorrelationPanel } from "@/components/organisms/CorrelationPanel";
+import { CandlestickPanel } from "@/components/organisms/CandlestickPanel";
+import { ReportPanel } from "@/components/organisms/ReportPanel";
 
 const TABS: Tab[] = [
   { id: "activos", label: "Activos" },
   { id: "ordenamiento", label: "Análisis de ordenamiento" },
   { id: "top-volume", label: "Top volumen" },
   { id: "time-series", label: "Similitud en series de tiempo" },
+  { id: "risk", label: "Patrones y riesgo" },
+  { id: "correlation", label: "Matriz de correlación" },
+  { id: "candlestick", label: "Velas + SMA" },
+  { id: "report", label: "Reporte (PDF)" },
 ];
 
 export function Dashboard() {
@@ -30,6 +38,10 @@ export function Dashboard() {
           {activeTab === "ordenamiento" && <SortingPanel />}
           {activeTab === "top-volume" && <TopVolumeDaysPanel />}
           {activeTab === "time-series" && <TimeSeriesPanel />}
+          {activeTab === "risk" && <RiskAnalysisPanel />}
+          {activeTab === "correlation" && <CorrelationPanel />}
+          {activeTab === "candlestick" && <CandlestickPanel />}
+          {activeTab === "report" && <ReportPanel />}
         </div>
       </div>
     </div>
